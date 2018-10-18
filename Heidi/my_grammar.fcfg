@@ -1,0 +1,38 @@
+% start S
+# ###################
+# Grammar Productions
+# ###################
+# S expansion productions
+S -> NP[NUM=?n] VP[NUM=?n]
+# NP expansion productions
+NP[NUM=?n] -> N[NUM=?n] 
+NP[NUM=?n] -> PropN[NUM=?n] 
+NP[NUM=?n] -> Det[NUM=?n] N[NUM=?n]
+NP[NUM=?n] -> Det[NUM=?n] AdjP N[NUM=?n]
+# VP expansion productions
+VP[TENSE=?t, NUM=?n] -> IV[TENSE=?t, NUM=?n] PP
+VP[TENSE=?t, NUM=?n] -> IV[TENSE=?t, NUM=?n] Adv
+VP[TENSE=?t, NUM=?n] -> TV[TENSE=?t, NUM=?n] NP PP
+VP[TENSE=?t, NUM=?n] -> TV[TENSE=?t, NUM=?n] NP
+VP[TENSE=?t, NUM=?n] -> LV[TENSE=?t, NUM=?n] AdjP
+#PP productions
+PP -> Prep NP
+#AdjP productions
+AdjP -> Adj
+AdjP -> Adj AdjP
+AdjP -> Adv AdjP
+# ###################
+# Lexical Productions
+# ###################
+Det[NUM=sg] -> 'that'
+Det -> 'the' | 'some'
+PropN[NUM=sg]-> 'Sally' | 'I' | 'it' | 'you'
+N[NUM=sg] -> 'sun' | 'house' | 'day'
+N[NUM=pl] -> 'games'
+Adj -> 'good'
+Adv -> 'there'
+IV[TENSE=pres,  NUM=sg] -> 'know' | 'show'
+TV[TENSE=fut] -> 'will show'
+IV[TENSE=past] -> 'sat'
+LV[TENSE=past] -> 'was'
+Prep -> 'with' | 'to'
